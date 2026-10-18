@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Resultado Final</title></head>
+<body>
+    <h2>Resumen de tu configuración</h2>
+    
+    <!-- Iteración de la lista de Strings tal y como pide el profesor -->
+    <ol>
+        <li th:each="dato : ${datos}" th:text="${dato}"></li>
+    </ol>
+
+    <a href="/">Crear nueva configuración</a>
+</body>
+</html>

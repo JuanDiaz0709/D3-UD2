@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Paso 3 - Accesorios</title></head>
+<body>
+    <h2>Paso 3: Equipamiento Adicional</h2>
+    
+    <form method="post">
+        <!-- HIDDEN FIELDS: Arrastramos el estado del Paso 1 y Paso 2 -->
+        <input type="hidden" name="jugador" th:value="${jugador}">
+        <input type="hidden" name="posicion" th:value="${posicion}">
+        <input type="hidden" name="nivel" th:value="${nivel}">
+        <input type="hidden" name="montura" th:value="${montura}">
+        <input type="hidden" name="resolucion" th:value="${resolucion}">
+        
+        <label>Selecciona accesorios (opcional):</label><br>
+        <!-- En los checkbox no mantenemos estado en este ejemplo básico al volver atrás, 
+             ya que es el paso final antes del resultado -->
+        <input type="checkbox" name="accesorios" value="Batería Extra"> Batería Extra<br>
+        <input type="checkbox" name="accesorios" value="Tarjeta MicroSD 128GB"> Tarjeta MicroSD 128GB<br>
+        <input type="checkbox" name="accesorios" value="Funda Protectora"> Funda Protectora Anti-golpes<br><br>
+        
+        <!-- Botón Atrás que devuelve TODO el formulario a /paso2 -->
+        <button type="submit" formaction="/paso2">Atrás</button>
+        <button type="submit" formaction="/resultado">Finalizar Resumen</button>
+    </form>
+</body>
+</html>

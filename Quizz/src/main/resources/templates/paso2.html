@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Paso 2 - Cámara</title></head>
+<body>
+    <h2>Paso 2: Configuración POV</h2>
+    <p style="color: red;" th:if="${error != null}" th:text="${error}"></p>
+    
+    <form method="post">
+        <!-- HIDDEN FIELDS: Arrastramos el estado del Paso 1 -->
+        <input type="hidden" name="jugador" th:value="${jugador}">
+        <input type="hidden" name="posicion" th:value="${posicion}">
+        <input type="hidden" name="nivel" th:value="${nivel}">
+        
+        <label>Tipo de montura:</label><br>
+        <input type="radio" name="montura" value="Arnés de Pecho" th:checked="${montura == 'Arnés de Pecho'}"> Arnés de Pecho<br>
+        <input type="radio" name="montura" value="Cinta de Cabeza" th:checked="${montura == 'Cinta de Cabeza'}"> Cinta de Cabeza<br><br>
+
+        <label>Resolución de grabación:</label><br>
+        <select name="resolucion">
+            <option value="">Selecciona...</option>
+            <option value="1080p 60fps" th:selected="${resolucion == '1080p 60fps'}">1080p 60fps (Estándar)</option>
+            <option value="4K 30fps" th:selected="${resolucion == '4K 30fps'}">4K 30fps (Alta Calidad)</option>
+        </select><br><br>
+        
+        <!-- FORMACTIONS: El botón decide a qué ruta del controlador se envía el POST -->
+        <button type="submit" formaction="/paso1">Atrás</button>
+        <button type="submit" formaction="/paso3">Siguiente</button>
+    </form>
+</body>
+</html>
